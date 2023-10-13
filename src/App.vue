@@ -1,6 +1,15 @@
+<script setup>
+const callback = (response) => {
+  // This callback will be triggered when the user selects or login to
+  // his Google account from the popup
+  console.log("Handle the response", response)
+}
+</script>
+
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+  <HelloWorld></HelloWorld>
+  <GoogleLogin :callback="callback"/>
 </template>
 
 <script>
@@ -10,6 +19,11 @@ export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  methods:{
+    callback(response){
+      console.log("Handle the response", response)
+    }
   }
 }
 </script>
